@@ -1,6 +1,7 @@
 ulimit -S -n 1024
 
 export PATH=~/bin:/usr/local/bin:$PATH:/usr/local/opt/git/share/git-core/contrib/diff-highlight
+export PATH=/usr/local/share/npm/bin:$PATH
 
 # for rbenv
 eval "$(rbenv init -)"
