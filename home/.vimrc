@@ -23,6 +23,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'rosstimson/scala-vim-support'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
+Bundle 'kana/vim-submode'
+Bundle 'itchyny/lightline.vim'
 
 " vim-scripts repos
 Bundle 'YankRing.vim'
@@ -200,3 +204,53 @@ if has('path_extra')
   set tags+=./**4/tags;
   set tags+=tags;
 endif
+
+autocmd FileType git :setlocal foldlevel=99
+"autocmd FileType git :setLocal Gitv_CommitStep=6
+"autocmd FileType git :setLocal Gitv_OpenHorizontal=1
+
+" vimgrep 後に自動で cwindow を開いてくれる魔法
+autocmd QuickFixCmdPost *grep* cwindow
+
+" [Qiita] Vimの便利な画面分割&タブページと、それを更に便利にする方法
+" http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sn gt
+nnoremap sp gT
+nnoremap sr <C-w>r
+nnoremap s= <C-w>=
+nnoremap sw <C-w>w
+nnoremap so <C-w>_<C-w>|
+nnoremap sO <C-w>=
+nnoremap sN :<C-u>bn<CR>
+nnoremap sP :<C-u>bp<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sT :<C-u>Unite tab<CR>
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
+
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+let g:lightline = {
+    \ 'colorscheme' : 'wombat',
+    \ }
+
+set t_Co=256
+
