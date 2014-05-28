@@ -14,13 +14,16 @@
     excludesfile = ~/.gitignore
     # autocrlf = input                 # CRLFを自動変換
 [alias]
-    st = status
+    s  = status --short --branch
+    st = status --short --branch
     sh = show
     so = remote show origin
     ft = fetch
     up = pull --rebase       # pull rebase
     rbm = rebase master      # masterへのrebaseはよく使うのでalias
     ad = add
+    ap = add -p
+    ai = add -i
     ci = commit              # modifiedなファイルを全てstageへ
     cam = commit -a --amend  # 直前のcommitを修正
     co = checkout

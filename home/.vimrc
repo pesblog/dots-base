@@ -22,11 +22,11 @@ Bundle 'houtsnip/vim-emacscommandline'
 Bundle 'tpope/vim-surround'
 Bundle 'rosstimson/scala-vim-support'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
 Bundle 'kana/vim-submode'
 Bundle 'itchyny/lightline.vim'
+Bundle 'rcmdnk/vim-markdown'
 
 " vim-scripts repos
 Bundle 'YankRing.vim'
@@ -171,21 +171,18 @@ command! -nargs=* Memox call k:Memo(<f-args>)
 function! s:MemoEnter(argc)
   if a:argc == 0
     call k:Memo("")
-    execute ":set filetype=mkd"
-    execute ":normal zr zr"
+    execute ":set filetype=markdown"
     execute ":cd %:h"
     execute ":NERDTreeCWD"
     execute ":wincmd \<C-W>"
   end
 endfunction
 
-function! s:MkdOpen()
-  execute ":normal zr zr"
-endfunction
-
 " MacVimを開いた直後にその日のメモを開く
 autocmd VimEnter * call s:MemoEnter(argc())
-autocmd BufRead,BufNewFile *.md call s:MkdOpen()
+
+" markdownモードで勝手に折りたたまれるのをオフにする
+let g:vim_markdown_folding_disabled=1
 
 function! k:QL()
   let a = escape(expand("%:p"), " ()")
