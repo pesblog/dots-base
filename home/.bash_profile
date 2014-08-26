@@ -3,6 +3,7 @@ ulimit -S -n 1024
 export PATH=~/bin:/usr/local/bin:$PATH:/usr/local/opt/git/share/git-core/contrib/diff-highlight
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/:$PATH
+export PATH=/usr/local/mysql/bin:$PATH
 
 # for rbenv
 eval "$(rbenv init -)"
