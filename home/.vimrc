@@ -153,24 +153,24 @@ let g:returnApp = "MacVim"
 nnoremap <silent> <C-C> :CoffeeCompile vert <CR><C-w>h
 setlocal splitright
 
-function! k:Now()
+function! s:Now()
   let now = "\n----------------------------------------------------------------------\n"
   let now = now . system("LANG=C date +'[%Y-%m-%d %H:%M:%S]'")
   execute ":normal i" . now
   execute ":startinsert"
 endfunction
-command! Now call k:Now()
+command! Now call s:Now()
 
-function! k:Memo(diff)
+function! s:Memo(diff)
   "edit `=system("memo_filename")`
   execute ":edit " . system("memo_filename " . a:diff)
 endfunction
-command! -nargs=0 Memo call k:Memo("")
-command! -nargs=* Memox call k:Memo(<f-args>)
+command! -nargs=0 Memo call s:Memo("")
+command! -nargs=* Memox call s:Memo(<f-args>)
 
 function! s:MemoEnter(argc)
   if a:argc == 0
-    call k:Memo("")
+    call s:Memo("")
     execute ":set filetype=markdown"
     execute ":cd %:h"
     execute ":NERDTreeCWD"
@@ -184,17 +184,17 @@ autocmd VimEnter * call s:MemoEnter(argc())
 " markdownモードで勝手に折りたたまれるのをオフにする
 let g:vim_markdown_folding_disabled=1
 
-function! k:QL()
+function! s:QL()
   let a = escape(expand("%:p"), " ()")
   let b = system("open -a MarkdownPreviewer.app " . a)
 endfunction
-command! QL call k:QL()
+command! QL call s:QL()
 
-function! k:Memod()
+function! s:Memod()
   let a = escape(expand("%:h"), " ()")
   execute ":edit " . a
 endfunction
-command! Memod call k:Memod()
+command! Memod call s:Memod()
 
 " ctags のファイルを現在の階層から下に続けて検索する
 if has('path_extra')
