@@ -11,7 +11,6 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 " original repos on github
 Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'othree/html5.vim'
 Bundle 'css3-syntax-plus'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
