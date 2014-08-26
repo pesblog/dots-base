@@ -26,6 +26,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'kana/vim-submode'
 Bundle 'itchyny/lightline.vim'
 Bundle 'rcmdnk/vim-markdown'
+Bundle 'toyamarinyon/vim-swift'
 
 " vim-scripts repos
 Bundle 'YankRing.vim'
