@@ -11,6 +11,12 @@
 [core]
     excludesfile = ~/.gitignore
 [alias]
+    # peco関連
+    bdpeco = "!f() { git branch | cut -b 3- | peco ; }; git branch -d `f`"
+    bdfpeco = "!f() { git branch | cut -b 3- | peco ; }; git branch -D `f`"
+    copeco = "!f() { git branch | cut -b 3- | peco ; }; git checkout `f`"
+    coapeco = "!f() { git branch -a | cut -b 3- | peco | sed -e 's/remotes\\/origin\\///' ; }; git checkout `f`"
+    # 全般
     s  = status --short --branch
     st = status --short --branch
     sh = show
